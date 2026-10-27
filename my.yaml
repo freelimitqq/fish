@@ -6,3 +6,4 @@
 # 由 Clash Verge 全局脚本通过 rule-provider 引用，走“我的选择”组。
 payload:
   - DOMAIN-SUFFIX,duanju.one
+  - DOMAIN-SUFFIX,saiboyun.org
