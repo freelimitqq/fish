@@ -3,7 +3,9 @@
 #   - DOMAIN-SUFFIX,example.com   # 整个域名及所有子域名
 #   - DOMAIN,example.com          # 仅这一个域名
 #   - DOMAIN-KEYWORD,keyword      # 域名中包含该关键词
+# 中文域名须写 Punycode 形式（如 良心云.com -> xn--9kqz23b19z.com），中文原样写无法匹配。
 # 由 Clash Verge 全局脚本通过 rule-provider 引用，走“我的选择”组。
 payload:
   - DOMAIN-SUFFIX,duanju.one
   - DOMAIN-SUFFIX,saiboyun.org
+  - DOMAIN-SUFFIX,xn--9kqz23b19z.com
