@@ -1,0 +1,9 @@
+# 个人直连表：实测直连可用、不需要走代理的站点
+# 加站格式（每行一条，写在 payload: 下面）：
+#   - DOMAIN,example.com          # 仅这一个域名
+#   - DOMAIN-SUFFIX,example.com   # 整个域名及所有子域名
+#   - DOMAIN-KEYWORD,keyword      # 域名中包含该关键词
+# 由 Clash Verge 全局脚本通过 rule-provider 引用，走 DIRECT，优先级高于所有公共规则表。
+# 注意：不要和 my.yaml（代理表）写同一个域名，两个文件保持互斥。
+payload:
+  - DOMAIN,1202078774.rsc.cdn77.org
