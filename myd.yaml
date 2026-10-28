@@ -6,4 +6,4 @@
 # 由 Clash Verge 全局脚本通过 rule-provider 引用，走 DIRECT，优先级高于所有公共规则表。
 # 注意：不要和 my.yaml（代理表）写同一个域名，两个文件保持互斥。
 payload:
-  - DOMAIN,1202078774.rsc.cdn77.org
+  - DOMAIN-SUFFIX,rsc.cdn77.org
