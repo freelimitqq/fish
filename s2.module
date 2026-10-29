@@ -1,4 +1,4 @@
 #!name=my-ai-top
 #!desc=AI provider rules via VPSDance Shadowrocket list, pinned to node apple2079. Place BELOW the personal module and ABOVE the two GMOogway modules.
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/VPSDance/ai-proxy-rules@main/rules/shadowrocket/global.list,apple2079
+RULE-SET,https://raw.githubusercontent.com/VPSDance/ai-proxy-rules/main/rules/shadowrocket/global.list,apple2079
