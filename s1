@@ -1,7 +1,0 @@
-#!name=my-personal-top
-#!desc=Personal sites mirroring Verge Script-12 sections 2-3: rsc.cdn77.org DIRECT, 3 personal sites to PROXY. Place ABOVE the AI module and the two GMOogway modules.
-[Rule]
-DOMAIN-SUFFIX,rsc.cdn77.org,DIRECT
-DOMAIN-SUFFIX,saiboyun.org,PROXY
-DOMAIN-SUFFIX,xn--9kqz23b19z.com,PROXY
-DOMAIN-SUFFIX,tttizi.com,PROXY
