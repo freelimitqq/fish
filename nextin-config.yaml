@@ -1,0 +1,178 @@
+# 由 Clash Verge 脚本 Script-12-3.js 翻译来的 Mihomo YAML，给 Nextin 用
+# 注意：
+# 1. 节点口令已留占位符（uuid、anytls 密码、reality 公钥），请从你 Verge 里现成的节点信息里填进去，不要把填好的版本传到公开仓库。
+# 2. “我的选择”组里只有下面 5 个自建节点；原脚本里它还包含机场订阅节点，那些是运行时从订阅取的，静态 YAML 里没有，要用机场节点请另外加。
+# 3. AI（global 规则集）走的是“我的选择”，不是钉死 apple2079（脚本里那句“AI 全量走 apple2079”的注释已过时，以规则本身为准）。这和你小火箭那套 AI 钉死 apple2079 不一样。
+# 4. 顶部的 port 等只是最小脚手架，脚本本身没定这些；DNS 也没写，沿用 Nextin 默认。
+
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+
+proxies:
+  - name: apple2079
+    type: vless
+    server: 66.112.221.220
+    port: 443
+    uuid: YOUR_VLESS_UUID_HERE
+    network: tcp
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    servername: action-intl.com
+    reality-opts:
+      public-key: YOUR_REALITY_PUBLIC_KEY_HERE
+      short-id: e981
+    client-fingerprint: chrome
+  - name: 日本-premium-4x
+    type: anytls
+    server: jppre.nodegoodgood.com
+    port: 11702
+    password: YOUR_ANYTLS_PASSWORD_HERE
+    client-fingerprint: chrome
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
+    sni: speedtest.net
+    skip-cert-verify: true
+  - name: 新加坡-premium-4x
+    type: anytls
+    server: sgpre2.nodegoodgood.com
+    port: 10222
+    password: YOUR_ANYTLS_PASSWORD_HERE
+    client-fingerprint: chrome
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
+    sni: speedtest.net
+    skip-cert-verify: true
+  - name: 美国-ultra-4x
+    type: anytls
+    server: uspre4.nodegoodgood.com
+    port: 10358
+    password: YOUR_ANYTLS_PASSWORD_HERE
+    client-fingerprint: chrome
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
+    sni: speedtest.net
+    skip-cert-verify: true
+  - name: 美国-ultra-6x
+    type: anytls
+    server: gia.nodegoodgood.com
+    port: 10055
+    password: YOUR_ANYTLS_PASSWORD_HERE
+    client-fingerprint: chrome
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
+    sni: speedtest.net
+    skip-cert-verify: true
+
+proxy-groups:
+  - name: 我的选择
+    type: select
+    proxies:
+      - apple2079
+      - 日本-premium-4x
+      - 新加坡-premium-4x
+      - 美国-ultra-4x
+      - 美国-ultra-6x
+
+rule-providers:
+  global:
+    type: http
+    behavior: classical
+    format: yaml
+    url: "https://fastly.jsdelivr.net/gh/VPSDance/ai-proxy-rules@main/rules/clash/global.yaml"
+    path: ./ruleset/ai-global.yaml
+    interval: 86400
+  reject:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./rules/reject.yaml
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./rules/direct.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./rules/proxy.yaml
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./rules/private.yaml
+    interval: 86400
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./rules/gfw.yaml
+    interval: 86400
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./rules/tld-not-cn.yaml
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./rules/telegramcidr.yaml
+    interval: 86400
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./rules/lancidr.yaml
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./rules/cncidr.yaml
+    interval: 86400
+  applications:
+    type: http
+    behavior: domain
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./rules/applications.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,global,我的选择
+  - DOMAIN-SUFFIX,rsc.cdn77.org,DIRECT
+  - DOMAIN-SUFFIX,saiboyun.org,我的选择
+  - DOMAIN-SUFFIX,xn--9kqz23b19z.com,我的选择
+  - DOMAIN-SUFFIX,tttizi.com,我的选择
+  - DOMAIN-SUFFIX,v2rayssr.com,我的选择
+  - DOMAIN-SUFFIX,ipleak.net,我的选择
+  - RULE-SET,applications,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,gfw,我的选择
+  - RULE-SET,proxy,我的选择
+  - RULE-SET,tld-not-cn,我的选择
+  - RULE-SET,telegramcidr,我的选择
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,我的选择
