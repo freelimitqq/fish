@@ -6,4 +6,6 @@
 # 由 Clash Verge 全局脚本通过 rule-provider 引用，走 DIRECT，优先级高于所有公共规则表。
 # 注意：不要和 myp.yaml（代理表）写同一个域名，两个文件保持互斥。
 payload:
-- DOMAIN-SUFFIX,duanju11.cc
+ - DOMAIN,clash.razord.top
+ - DOMAIN,yacd.haishan.me
+ - DOMAIN-SUFFIX,duanju11.cc
