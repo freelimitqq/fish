@@ -10,11 +10,17 @@ DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 
-# Gemini / Google AI
-DOMAIN,gemini.google.com
-DOMAIN,aistudio.google.com
-DOMAIN,ai.google.dev
-DOMAIN,generativelanguage.googleapis.com
+# Google 全系走 apple2079（2026-11-23 精简）
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,google
+DOMAIN-SUFFIX,google.dev
+DOMAIN-SUFFIX,ai.studio
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,withgoogle.com
+DOMAIN-SUFFIX,goog
 
 # Meta AI / Muse
 DOMAIN-SUFFIX,meta.ai
