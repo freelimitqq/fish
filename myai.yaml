@@ -67,7 +67,12 @@ payload:
   - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
   - DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
   - DOMAIN-SUFFIX,stitch.withgoogle.com
-  
+
+  # Google 全系走 apple2079（2026-11-23）
+  - DOMAIN-SUFFIX,google.com
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,googleusercontent.com
 
  # Meta AI / Muse
   - DOMAIN-SUFFIX,meta.ai
